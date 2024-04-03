@@ -12,14 +12,14 @@ const Work = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
-  // useEffect(() => {
-  //   const query = '*[_type == "works"]';
+  useEffect(() => {
+    const query = '*[_type == "works"]';
 
-  //   client.fetch(query).then((data) => {
-  //     setWorks(data);
-  //     setFilterWork(data);
-  //   });
-  // }, []);
+    client.fetch(query).then((data) => {
+      setWorks(data);
+      setFilterWork(data);
+    });
+  }, []);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
