@@ -23,9 +23,9 @@ import about02 from '../assets/about02.png';
 import about03 from '../assets/about03.png';
 import about04 from '../assets/about04.png';
 
-import profile from '../assets/profile.png';
+import profile from '../assets/sabiran_profile-removebg.png';
 import circle from '../assets/circle.svg';
-import logo from '../assets/logo.png';
+import logo from '../assets/sabiran-logo.png';
 
 import adidas from '../assets/adidas.png';
 import amazon from '../assets/amazon.png';
@@ -34,6 +34,16 @@ import bolt from '../assets/bolt.png';
 import nb from '../assets/nb.png';
 import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
+
+import ml from '../assets/Machine-learning.png';
+import dl from '../assets/deep-learning.png';
+import comvis from '../assets/computer-vision.jpeg';
+import cicd from '../assets/ci-cd.jpg';
+import danalytics from '../assets/data-analytics.jpeg';
+import llm from '../assets/llm.jpeg';
+import yolo from '../assets/yolov8.svg';
+import pytorch from '../assets/pytorch.png';
+import tensorflow from '../assets/tensorflow.png';
 
 export default {
   email,
@@ -69,4 +79,13 @@ export default {
   nb,
   skype,
   spotify,
+  ml,
+  dl,
+  comvis,
+  cicd,
+  danalytics,
+  llm,
+  yolo,
+  pytorch,
+  tensorflow,
 };
