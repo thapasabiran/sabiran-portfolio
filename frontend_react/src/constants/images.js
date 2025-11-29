@@ -19,7 +19,7 @@ import about01 from '../assets/about01.png';
 import about02 from '../assets/about02.png';
 import about03 from '../assets/about03.png';
 import about04 from '../assets/about04.png';
-import profile from '../assets/sabiran_profile-removebg.png'; // Make sure this filename matches exactly!
+import profile from '../assets/sabiran_profile-removebg.png';
 import circle from '../assets/circle.svg';
 import logo from '../assets/sabiran-logo.png';
 
@@ -42,8 +42,8 @@ import yolo from '../assets/yolov8.svg';
 import pytorch from '../assets/pytorch.png';
 import tensorflow from '../assets/tensorflow.png';
 
-// 2. Export them in the object
-export default {
+// 2. Define the object first (Fixes the Netlify Build Error)
+const images = {
   email,
   mobile,
   api,
@@ -82,3 +82,6 @@ export default {
   pytorch,
   tensorflow,
 };
+
+// 3. Export the variable
+export default images;
