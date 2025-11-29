@@ -11,9 +11,7 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-
-  // IMPORTANT: These names must match your Sanity "tags" exactly for filtering to work
-  const filters = ['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'];
+  const [filterButtons, setFilterButtons] = useState(['All']);
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -21,6 +19,26 @@ const Work = () => {
     client.fetch(query).then((data) => {
       setWorks(data);
       setFilterWork(data);
+
+      // --- ROBUST FILTER LOGIC ---
+      // 1. Create a Set to hold unique tags from the database
+      const dbTags = new Set();
+      
+      data.forEach((item) => {
+        if (item.tags) {
+          item.tags.forEach((tag) => {
+             // Add tag to set (trim whitespace to avoid "React " vs "React")
+             dbTags.add(tag.trim());
+          });
+        }
+      });
+
+      // 2. Remove "All" from the DB tags if it exists (so we don't have duplicates)
+      dbTags.delete('All');
+      dbTags.delete('all'); // Handle lowercase just in case
+
+      // 3. Create final list: Hardcoded 'All' + the rest from DB
+      setFilterButtons(['All', ...Array.from(dbTags)]);
     });
   }, []);
 
@@ -44,7 +62,7 @@ const Work = () => {
       <h2 className="head-text">My Creative <span>Portfolio</span></h2>
 
       <div className="app__work-filter">
-        {filters.map((item, index) => (
+        {filterButtons.map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
