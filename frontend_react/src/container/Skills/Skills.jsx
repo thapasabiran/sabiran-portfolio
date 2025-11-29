@@ -15,6 +15,8 @@ const Skills = () => {
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
+      // Optional: Sort experiences by year if Sanity doesn't
+      // data.sort((a, b) => b.year - a.year); 
       setExperiences(data);
     });
 
@@ -25,9 +27,10 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="head-text">Skills & Experiences</h2>
+      <h2 className="head-text">Skills & <span>Experience</span></h2>
 
       <div className="app__skills-container">
+        {/* LEFT SIDE: ICONS GRID */}
         <motion.div className="app__skills-list">
           {skills.map((skill) => (
             <motion.div
@@ -38,7 +41,7 @@ const Skills = () => {
             >
               <div
                 className="app__flex"
-                style={{ backgroundColor: skill.bgColor }}
+                style={{ backgroundColor: skill.bgColor }} // Sanity override or fallback
               >
                 <img src={urlFor(skill.icon)} alt={skill.name} />
               </div>
@@ -46,6 +49,8 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* RIGHT SIDE: TIMELINE */}
         <div className="app__skills-exp">
           {experiences.map((experience) => (
             <motion.div
@@ -57,27 +62,30 @@ const Skills = () => {
               </div>
               <motion.div className="app__skills-exp-works">
                 {experience.works.map((work) => (
-                  <>
+                  <React.Fragment key={work.name}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
                       className="app__skills-exp-work"
+                      data-tooltip-id={work.name} // Updated for newer React Tooltip
+                      data-tooltip-content={work.desc}
+                      // Fallback for older React Tooltip versions:
                       data-tip
                       data-for={work.name}
-                      key={work.name}
                     >
                       <h4 className="bold-text">{work.name}</h4>
                       <p className="p-text">{work.company}</p>
                     </motion.div>
+                    
                     <Tooltip
                       id={work.name}
                       effect="solid"
-                      arrowColor="#fff"
+                      arrowColor="#161b22" // Matches tooltip bg
                       className="skills-tooltip"
                     >
                       {work.desc}
                     </Tooltip>
-                  </>
+                  </React.Fragment>
                 ))}
               </motion.div>
             </motion.div>
@@ -91,5 +99,5 @@ const Skills = () => {
 export default AppWrap(
   MotionWrap(Skills, 'app__skills'),
   'skills',
-  'app__whitebg',
+  'app__whitebg', // Uses the Surface Color ($bg-secondary)
 );

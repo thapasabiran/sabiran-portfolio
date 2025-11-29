@@ -1,38 +1,140 @@
+:root {
+  --color-forest: #0a1915;
+  --color-peach: #ffc8b2;
+  --color-peach-dim: #eebba6;
+}
+
 .app__about {
-    flex: 1;
-    width: 100%;
+  background-color: var(--color-forest);
+  color: var(--color-peach);
+  flex: 1;
+  width: 100%;
+  padding: 4rem 2rem;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Section Title */
+  .head-text {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--color-peach);
+    margin-bottom: 3rem;
+
+    span {
+      color: var(--color-peach-dim); /* Create contrast */
+      font-style: italic;
+    }
+    
+    @media screen and (max-width: 450px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+/* --- The Bento Grid --- */
+.app__profiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Columns on desktop */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr); /* 2 Cols on Tablet */
+  }
+
+  @media screen and (max-width: 600px) {
+    display: flex; /* Stack on Mobile */
     flex-direction: column;
   }
+}
+
+/* --- Common Card Style --- */
+.app__profile-item {
+  background: rgba(255, 255, 255, 0.03); /* Glassy Dark */
+  border: 1px solid rgba(255, 200, 178, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--color-peach);
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background: rgba(255, 200, 178, 0.1);
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-peach);
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-peach-dim);
+  }
+}
+
+/* --- Special Grid Slots (The "Bento" Magic) --- */
+
+/* 1. The Bio Card: Spans 2 columns */
+.item-bio {
+  grid-column: span 2;
+  background: linear-gradient(145deg, rgba(255,200,178,0.05), rgba(10,25,21,0));
   
-  .app__profiles {
+  @media screen and (max-width: 900px) {
+    grid-column: span 2;
+  }
+  
+  h2 { font-size: 2rem; }
+  p { font-size: 1.1rem; max-width: 90%; }
+}
+
+/* 2. The Tech Stack Card: Tall card */
+.item-stack {
+  grid-row: span 2;
+  background: rgba(10, 25, 21, 0.5);
+  
+  .stack-list {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-  
-  .app__profile-item {
-    width: 190px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    margin: 2rem;
-  
-    img {
-      width: 100%;
-      height: 170px;
-      border-radius: 15px;
-      object-fit: cover;
-    }
-  
-    @media screen and (min-width: 2000px) {
-      width: 370px;
-      margin: 2rem 4rem;
-  
-      img {
-        height: 320px;
-      }
+    gap: 10px;
+    margin-top: 1rem;
+    
+    span {
+      background: rgba(255, 200, 178, 0.1);
+      color: var(--color-peach);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: 600;
     }
   }
+}
+
+/* 3. Standard Service Cards (from Sanity) */
+.item-standard {
+  grid-column: span 1;
+}

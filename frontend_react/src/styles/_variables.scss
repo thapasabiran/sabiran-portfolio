@@ -1,0 +1,60 @@
+/* =========================================
+   1. COLOR PALETTE (Theme: Organic Forest)
+   ========================================= */
+
+// BACKGROUNDS
+// --------------------
+// Deep Forest Green (Main Page Background)
+$bg-primary: #0a1915; 
+
+// Section Surface (Alternating Sections)
+// A slightly lighter moss green for section stripes.
+$bg-secondary: #142620; 
+
+// Card Surface (NEW - Distinct from Secondary)
+// A rich leaf green. distinct enough to pop against both primary and secondary backgrounds.
+$bg-card: #1e362e; 
+
+// BORDERS
+// --------------------
+// A very subtle peach tint to the border makes it blend perfectly
+$border-color: rgba(255, 200, 178, 0.15); 
+
+// TEXT COLORS
+// --------------------
+$text-primary: #f1f8f5; // Minty White (Softer than pure white)
+$text-secondary: #94a8a0; // Sage Grey (Muted text)
+
+// ACCENTS
+// --------------------
+$primary-color: #2d6a4f; // Medium Green (Used for depth/shadows)
+
+// THE HERO ACCENT
+// A soft, warm Peach that sits beautifully on the green background.
+$secondary-color: #ffc8b2; 
+
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+$font-main: 'DM Sans', sans-serif;
+$font-code: 'Fira Code', monospace;
+
+/* =========================================
+   3. BREAKPOINTS
+   ========================================= */
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+/* =========================================
+   4. MIXINS
+   ========================================= */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin theme-transition {
+  transition: all 0.3s ease-in-out;
+}

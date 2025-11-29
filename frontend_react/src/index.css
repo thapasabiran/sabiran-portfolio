@@ -3,13 +3,23 @@
 :root {
   --font-base: "DM Sans", sans-serif;
 
-  --primary-color: #edf2f8;
-  --secondary-color: #313bac;
-  --black-color: #030303;
-  --lightGray-color: #e4e4e4;
-  --gray-color: #6b7688;
-  --brown-color: #46364a;
-  --white-color: #ffffff;
+  /* SABIRAN V2 - DARK MODE PALETTE */
+  /* Background: Deep Charcoal instead of Light Gray */
+  --primary-color: #0f1115; 
+  
+  /* Secondary: Electric Blue (Kept similar but slightly brighter for contrast) */
+  --secondary-color: #4facfe; 
+  
+  /* Text: Off-white instead of Black */
+  --black-color: #ededed; 
+  
+  /* Surface: Dark Gray instead of White (for cards/sections) */
+  --white-color: #1a1d23; 
+  
+  /* Accents */
+  --lightGray-color: #2d3036; /* Now a dark border color */
+  --gray-color: #a3a3a3;      /* Muted text */
+  --brown-color: #46364a;     /* Kept as is for now */
 }
 
 * {

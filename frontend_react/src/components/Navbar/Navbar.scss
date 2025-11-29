@@ -1,173 +1,155 @@
 .app__navbar {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  z-index: 100;
   
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.25);
-    // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    position: fixed;
-    z-index: 2;
-  }
-  
+  /* --- Forest Glass Effect --- */
+  background: rgba(10, 25, 21, 0.7); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 200, 178, 0.1);
+
+  /* Logo Styling */
   .app__navbar-logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-  
+
     img {
       width: 90px;
       height: 20px;
-  
-      @media screen and (min-width: 2000px) {
-        width: 180px;
-        height: 40px;
-      }
+      /* If using an image logo, you might need a filter to make it peach/white */
+      /* filter: brightness(0) invert(1); */ 
     }
   }
-  
+
+  /* Desktop Links */
   .app__navbar-links {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-  
     list-style: none;
-  
+
     li {
       margin: 0 1rem;
       cursor: pointer;
-  
+      display: flex;
       flex-direction: column;
-  
+      align-items: center;
+
       div {
         width: 5px;
         height: 5px;
         background: transparent;
         border-radius: 50%;
-  
         margin-bottom: 5px;
+        transition: all 0.3s ease-in-out;
       }
-  
+
       a {
-        color: var(--gray-color);
+        color: var(--color-peach-dim, #eebba6);
         text-decoration: none;
-        flex-direction: column;
-  
         text-transform: uppercase;
         font-weight: 500;
-  
+        font-size: 0.9rem;
         transition: all 0.3s ease-in-out;
-  
+
         &:hover {
-          color: var(--secondary-color);
+          color: var(--color-peach, #ffc8b2);
         }
       }
-  
+
       &:hover {
         div {
-          background: var(--secondary-color);
+          background-color: var(--color-peach, #ffc8b2);
         }
       }
     }
-  
+
     @media screen and (max-width: 900px) {
       display: none;
     }
   }
-  
+
+  /* Mobile Menu */
   .app__navbar-menu {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     position: relative;
-  
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--secondary-color);
-  
-  
+    background-color: var(--color-peach, #ffc8b2);
+
     svg {
       width: 70%;
       height: 70%;
-      color: var(--white-color);
+      color: var(--color-forest, #0a1915);
     }
-  
+
     div {
       position: fixed;
       top: 0;
       bottom: 0;
       right: 0;
       z-index: 5;
-  
       padding: 1rem;
-  
       width: 80%;
       height: 100vh;
-      
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
       flex-direction: column;
       
-      background: url('../../assets/bgWhite.png');
-      background-color: var(--white-color);
-      background-size: cover;
-      background-repeat: repeat;
-  
-      /* top box shadow */
-      box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
-  
+      /* Mobile Menu Background */
+      background: var(--color-forest, #0a1915); 
+      box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+
       svg {
         width: 35px;
         height: 35px;
-        color: var(--secondary-color);
+        color: var(--color-peach, #ffc8b2);
         margin: 0.5rem 1rem;
       }
-  
+
       ul {
         list-style: none;
         margin: 0;
         padding: 0;
         height: 100%;
         width: 100%;
-  
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
-  
+
         li {
           margin: 1rem;
-  
+          
           a {
-            color: var(--gray-color);
+            color: var(--color-peach, #ffc8b2);
             text-decoration: none;
             font-size: 1rem;
             text-transform: uppercase;
             font-weight: 500;
-  
             transition: all 0.3s ease-in-out;
-  
+
             &:hover {
-              color: var(--secondary-color);
+              color: #fff;
             }
           }
         }
       }
-  
-      @media screen and (min-width: 900px) {
-        display: none;
-      }
     }
-  
+
     @media screen and (min-width: 900px) {
       display: none;
     }
   }
+}

@@ -12,6 +12,9 @@ const Work = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
+  // IMPORTANT: These names must match your Sanity "tags" exactly for filtering to work
+  const filters = ['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'];
+
   useEffect(() => {
     const query = '*[_type == "works"]';
 
@@ -38,10 +41,10 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
+      <h2 className="head-text">My Creative <span>Portfolio</span></h2>
 
       <div className="app__work-filter">
-        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
+        {filters.map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
@@ -59,10 +62,8 @@ const Work = () => {
       >
         {filterWork.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
-            <div
-              className="app__work-img app__flex"
-            >
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+            <div className="app__work-img app__flex">
+              {work.imgUrl && <img src={urlFor(work.imgUrl)} alt={work.name} />}
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -70,7 +71,6 @@ const Work = () => {
                 className="app__work-hover app__flex"
               >
                 <a href={work.projectLink} target="_blank" rel="noreferrer">
-
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.90] }}
@@ -98,7 +98,7 @@ const Work = () => {
               <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
 
               <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+                <p className="p-text">{work.tags ? work.tags[0] : 'Project'}</p>
               </div>
             </div>
           </div>
@@ -110,6 +110,5 @@ const Work = () => {
 
 export default AppWrap(
   MotionWrap(Work, 'app__works'),
-  'work',
-  'app__primarybg',
+  'work'
 );

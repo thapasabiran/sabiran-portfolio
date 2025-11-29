@@ -1,156 +1,211 @@
+/* --- Theme Variables --- */
+:root {
+  --color-forest: #0a1915;
+  --color-peach: #ffc8b2;
+  --color-peach-dim: #eebba6;
+}
+
 .app__works {
   flex: 1;
   width: 100%;
   flex-direction: column;
+  background-color: var(--color-forest); /* Seamless dark bg */
+  padding-bottom: 5rem;
+  
+  /* Heading Style */
+  .head-text {
+    font-size: 3rem;
+    color: var(--color-peach);
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    span { color: var(--color-peach-dim); font-style: italic;}
+
+    @media screen and (max-width: 450px) {
+        font-size: 2rem;
+    }
+  }
 }
 
+/* --- Filter Buttons --- */
 .app__work-filter {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
-  margin: 4rem 0 2rem;
+  margin: 2rem 0 3rem;
 
   .app__work-filter-item {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    color: #000;
-    font-weight: 800;
-
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px; /* Pill shape */
+    background-color: rgba(255, 255, 255, 0.05); /* Faint glass */
+    border: 1px solid rgba(255, 200, 178, 0.1);
+    color: var(--color-peach-dim);
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 
     &:hover {
-      background-color: var(--secondary-color);
-      color: #fff;
-    }
-
-    @media screen and (min-width: 2000px) {
-      padding: 1rem 2rem;
-      border-radius: 0.85rem;
+      background-color: rgba(255, 200, 178, 0.1);
+      color: var(--color-peach);
     }
   }
 
+  /* Active State */
   .item-active {
-    background-color: var(--secondary-color);
-    color: #fff;
+    background-color: var(--color-peach);
+    color: var(--color-forest);
+    font-weight: 800;
+    border-color: var(--color-peach);
   }
 }
 
+/* --- The Project Portfolio Grid --- */
 .app__work-portfolio {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
+  /* The Glass Card */
   .app__work-item {
-    width: 270px;
+    width: 300px; /* Fixed width */
     flex-direction: column;
-
-    margin: 2rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    color: #000;
-
+    margin: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.03); /* Dark Glass */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 200, 178, 0.1);
+    color: var(--color-peach);
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px); /* Lift up */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-color: var(--color-peach); /* Glow border */
     }
 
-    @media screen and (min-width: 2000px) {
-      width: 470px;
-      padding: 1.25rem;
-      border-radius: 0.75rem;
-    }
-
-    @media screen and (max-width: 300px) {
+    /* Image Container */
+    .app__work-img {
       width: 100%;
-      margin: 1rem;
+      height: 200px; /* Fixed height for consistency */
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Hover Overlay (The Eye/Github icons) */
+      .app__work-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 25, 21, 0.7); /* Forest overlay */
+        border-radius: 10px;
+        opacity: 0;
+        transition: all 0.3s ease;
+        
+        div {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #fff;
+          margin: 1rem;
+          font-weight: 800;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          svg {
+            width: 50%;
+            height: 50%;
+            color: var(--color-peach);
+          }
+        }
+      }
+    }
+
+    /* Content below image */
+    .app__work-content {
+      padding: 1rem 0.5rem 0.5rem;
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h4 {
+        margin-top: 0.5rem;
+        line-height: 1.5;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-align: center;
+        
+        /* Force single line title */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: var(--color-peach-dim);
+        margin-top: 10px;
+        text-align: center;
+        line-height: 1.4;
+        
+        /* --- CLAMPING FOR EQUAL HEIGHT --- */
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Max 3 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 4.2em; /* 1.4em line-height * 3 lines */
+      }
+
+      /* The Tag Pill */
+      .app__work-tag {
+        position: absolute;
+        top: -35px; /* Pulls it up */
+        background-color: var(--color-forest); 
+        border: 1px solid var(--color-peach);
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        
+        p {
+            /* Reset clamp for the tag text */
+            margin: 0;
+            font-size: 0.75rem;
+            color: var(--color-peach);
+            font-weight: 600;
+            height: auto;
+            -webkit-line-clamp: unset;
+        }
+      }
     }
   }
-}
 
-.app__work-img {
-  width: 100%;
-  height: 230px;
-
-  position: relative;
-
-  img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.5rem;
-    object-fit: cover;
-  }
-
-  @media screen and (min-width: 2000px) {
-    height: 350px;
-  }
-}
-
-.app__work-hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-
-  border-radius: 0.5rem;
-  opacity: 0;
-  transition: all 0.3s ease;
-
-  div {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-
-    margin: 1rem;
-    font-family: var(--font-base);
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    svg {
-      width: 50%;
-      height: 50%;
-      color: var(--white-color);
-    }
-  }
-}
-
-.app__work-content {
-  padding: 0.5rem;
-  width: 100%;
-  position: relative;
-  flex-direction: column;
-
-  h4 {
-    margin-top: 1rem;
-    line-height: 1.5;
-
-    @media screen and (min-width: 2000px) {
-      margin-top: 3rem;
-    }
-  }
-
-  .app__work-tag {
-    position: absolute;
-
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    background-color: #fff;
-    top: -25px;
+  @media screen and (max-width: 350px) {
+    .app__work-item { width: 100%; margin: 1rem; }
   }
 }
