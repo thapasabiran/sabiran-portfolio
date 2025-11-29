@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../client';
+// import { client } from '../../client'; // <-- No longer needed for contact form
 import './Footer.scss';
 
 const Footer = () => {
@@ -16,20 +16,35 @@ const Footer = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  // Helper function to encode data for Netlify
+  const encode = (data) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
+
+  const handleSubmit = (e) => {
+    // Prevent default form behavior if necessary, though this is a button click
     setLoading(true);
 
-    const contact = {
-      _type: 'contact',
-      name: name,
-      email: email,
-      message: message,
-    };
-
-    client.create(contact)
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 
+        'form-name': 'contact', // This must match the name in index.html
+        name,
+        email,
+        message 
+      }),
+    })
       .then(() => {
         setLoading(false);
         setIsFormSubmitted(true);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        alert('Something went wrong. Please try again.');
       });
   };
 
@@ -40,16 +55,19 @@ const Footer = () => {
       <div className="app__footer-cards">
         <div className="app__footer-card">
           <img src={images.email} alt="email" />
-          <a href="mailto:hello@sabiran.com" className="p-text">hello@sabiran.com</a>
+          <a href="mailto:sabiranthapa@gmail.com" className="p-text">sabiranthapa@gmail.com</a>
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="mobile" />
-          <a href="tel: +1 (123) 456-789" className="p-text">+1 (123) 456-789</a>
+          <a href="tel:+16475626399" className="p-text">+1 (647) 562-6399</a>
         </div>
       </div>
 
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
+          {/* Important: Removed "form" tag here to prevent double submission issues in React. 
+              We handle it via the button onClick */}
+          
           <div className="app__flex">
             <input className="p-text" type="text" placeholder="Your Name" name="name" value={name} onChange={handleChangeInput} />
           </div>
