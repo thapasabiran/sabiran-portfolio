@@ -6,12 +6,12 @@
   padding: 1rem 2rem;
   position: fixed;
   z-index: 100;
-  
-  /* --- Forest Glass Effect --- */
-  background: rgba(10, 25, 21, 0.7); 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 200, 178, 0.1);
+
+  /* --- Midnight Glass Effect --- */
+  background: rgba(var(--bg-primary-rgb), 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
 
   /* Logo Styling */
   .app__navbar-logo {
@@ -19,11 +19,19 @@
     justify-content: flex-start;
     align-items: center;
 
-    img {
-      width: 90px;
-      height: 20px;
-      /* If using an image logo, you might need a filter to make it peach/white */
-      /* filter: brightness(0) invert(1); */ 
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      font-family: var(--font-base);
+
+      span {
+        color: var(--primary-color);
+        /* The Dot Accent */
+      }
     }
   }
 
@@ -52,21 +60,22 @@
       }
 
       a {
-        color: var(--color-peach-dim, #eebba6);
+        color: var(--text-secondary);
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 500;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          color: var(--color-peach, #ffc8b2);
+          color: var(--white-color);
         }
       }
 
       &:hover {
         div {
-          background-color: var(--color-peach, #ffc8b2);
+          background-color: var(--primary-color);
         }
       }
     }
@@ -85,12 +94,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-peach, #ffc8b2);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
 
     svg {
       width: 70%;
       height: 70%;
-      color: var(--color-forest, #0a1915);
+      color: var(--primary-color);
     }
 
     div {
@@ -100,21 +110,21 @@
       right: 0;
       z-index: 5;
       padding: 1rem;
-      width: 80%;
+      width: 75%;
       height: 100vh;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
       flex-direction: column;
-      
+
       /* Mobile Menu Background */
-      background: var(--color-forest, #0a1915); 
-      box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+      background: var(--bg-secondary);
+      box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.5);
 
       svg {
         width: 35px;
         height: 35px;
-        color: var(--color-peach, #ffc8b2);
+        color: var(--secondary-color);
         margin: 0.5rem 1rem;
       }
 
@@ -131,9 +141,9 @@
 
         li {
           margin: 1rem;
-          
+
           a {
-            color: var(--color-peach, #ffc8b2);
+            color: var(--text-primary);
             text-decoration: none;
             font-size: 1rem;
             text-transform: uppercase;
@@ -141,7 +151,7 @@
             transition: all 0.3s ease-in-out;
 
             &:hover {
-              color: #fff;
+              color: var(--secondary-color);
             }
           }
         }

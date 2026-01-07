@@ -2,8 +2,200 @@
 @import 'styles/variables';
 
 .app {
-  background-color: $bg-primary; 
-  font-family: $font-main;
+  background-color: var(--bg-primary);
+  font-family: var(--font-base);
+}
+
+// 2. BACKGROUNDS
+// -------------------------
+/* Primary = The Deepest Background */
+.app__primarybg {
+  background-color: var(--bg-primary);
+}
+
+/* Secondary = Surface for sections */
+.app__whitebg {
+  background-color: var(--bg-secondary);
+}
+
+// -------------------------
+
+.app__container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.app__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__wrapper {
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+  /* Balanced Padding for Centering */
+  padding: 4rem 2rem;
+
+  @media screen and (max-width: 450px) {
+    padding: 4rem 1rem 2rem;
+  }
+}
+
+.copyright {
+  width: 100%;
+  padding: 2rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  p {
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+}
+
+// 3. TYPOGRAPHY
+// ---------------------------------
+.head-text {
+  font-size: 2.25rem;
+  /* Smaller for Mobile */
+  font-weight: 800;
+  text-align: center;
+  color: var(--text-primary);
+  text-transform: capitalize;
+
+  span {
+    color: var(--primary-color);
+    /* Indigo accent */
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 2000px) {
+    font-size: 4rem;
+  }
+}
+
+.p-text {
+  font-size: 0.9rem;
+  text-align: left;
+  color: var(--text-secondary);
+  line-height: 1.6;
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.75rem;
+  }
+}
+
+.bold-text {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-align: left;
+
+  @media screen and (min-width: 2000px) {
+    font-size: 2rem;
+  }
+}
+
+// 4. NAVIGATION & SOCIAL (Desktop Sidebar)
+// -----------------------------------------
+.app__social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+
+  div {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    // Glassy Circle
+    background-color: var(--bg-card);
+    margin: 0.25rem 0;
+    border: 1px solid var(--border-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      color: var(--text-secondary);
+    }
+
+    &:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+
+      svg {
+        color: var(--white-color);
+      }
+    }
+
+    @media screen and (min-width: 2000px) {
+      width: 70px;
+      height: 70px;
+      margin: 0.5rem 0;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+.app__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+
+  .app__navigation-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-color); // Inactive = darker
+    margin: 0.5rem;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover,
+    &.active {
+      background-color: var(--secondary-color); // Active = Blue
+    }
+
+    @media screen and (min-width: 2000px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Hide Sidebar on Mobile/Tablet
+@media screen and (max-width: 900px) {
+
+  .app__navigation,
+  .app__social {
+    display: none;
+  }
+
+  .copyright {
+    padding: 2rem;
+    align-items: center;
+  }
 }
 
 // 2. BACKGROUNDS (The Fix)
@@ -11,13 +203,13 @@
 
 // Primary = The Deepest Background (#0d1117)
 .app__primarybg {
-  background-color: $bg-primary; 
+  background-color: $bg-primary;
 }
 
 // WhiteBg = The "Surface" Background (#161b22)
 // This creates a subtle difference so you can distinguish sections
 .app__whitebg {
-  background-color: $bg-secondary; 
+  background-color: $bg-secondary;
 }
 
 // -------------------------
@@ -66,9 +258,9 @@
   font-size: 2.75rem;
   font-weight: 800;
   text-align: center;
-  
+
   // CRITICAL FIX: Ensure this is Off-White, not Black
-  color: $text-primary; 
+  color: $text-primary;
   text-transform: capitalize;
 
   span {
@@ -112,86 +304,56 @@
 
 // 4. NAVIGATION & SOCIAL (Dark Mode Update)
 // -----------------------------------------
-.app__social {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-  padding: 1rem;
-
-  div {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    
-    // Icon background: Dark Surface
-    background-color: $bg-secondary; 
-    margin: 0.25rem 0;
-    
-    // Border: Subtle
-    border: 1px solid rgba($text-primary, 0.1); 
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-
-    svg {
-      width: 15px;
-      height: 15px;
-      color: $text-secondary; // Grey icon
-    }
-
-    &:hover {
-      background-color: $secondary-color; // Accented Background
-      border-color: $secondary-color;
-
-      svg {
-        color: $bg-primary; // Icon turns dark for contrast against bright accent
-      }
-    }
-
-    @media screen and (min-width: 2000px) {
-      width: 70px;
-      height: 70px;
-      margin: 0.5rem 0;
-
-      svg {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
-}
-
+/* --- CYBERPUNK ACTIVITY BAR --- */
 .app__navigation {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 1rem;
+  /* Removed fixed positioning to prevent z-index stacking issues */
+  /* The dots will now vertically center relative to each section */
 
   .app__navigation-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    // Inactive Dot: Grey
-    background-color: $text-secondary; 
-    margin: 0.5rem;
-    transition: background-color 0.2s ease-in-out;
+    width: 3px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: var(--border-color);
+    margin: 0.75rem 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
 
-    &:hover, &.active {
-      background-color: $secondary-color; // Active Dot: Accent
+    &:hover {
+      background-color: var(--text-secondary);
+      height: 20px;
+    }
+
+    &.active {
+      background-color: var(--primary-color) !important;
+      height: 40px !important;
+      width: 4px !important;
+      box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
     }
 
     @media screen and (min-width: 2000px) {
-      width: 20px;
-      height: 20px;
+      width: 6px;
+      height: 24px;
+      margin: 1rem 0;
+
+      &.active {
+        height: 60px !important;
+      }
     }
   }
 }
 
+/* Social Media Hidden (Nuclear Option) */
+.app__social {
+  display: none !important;
+}
+
 @media screen and (max-width: 500px) {
+
   .app__navigation,
   .app__social {
     display: none;

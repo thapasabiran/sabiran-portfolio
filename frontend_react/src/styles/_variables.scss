@@ -1,37 +1,30 @@
 /* =========================================
-   1. COLOR PALETTE (Theme: Organic Forest)
+   1. COLOR PALETTE (Theme: Midnight Pro)
    ========================================= */
 
 // BACKGROUNDS
 // --------------------
-// Deep Forest Green (Main Page Background)
-$bg-primary: #0a1915; 
-
-// Section Surface (Alternating Sections)
-// A slightly lighter moss green for section stripes.
-$bg-secondary: #142620; 
-
-// Card Surface (NEW - Distinct from Secondary)
-// A rich leaf green. distinct enough to pop against both primary and secondary backgrounds.
-$bg-card: #1e362e; 
+$bg-primary: var(--bg-primary);
+$bg-secondary: var(--bg-secondary);
+$bg-card: var(--bg-card);
 
 // BORDERS
 // --------------------
-// A very subtle peach tint to the border makes it blend perfectly
-$border-color: rgba(255, 200, 178, 0.15); 
+$border-color: var(--border-color);
 
 // TEXT COLORS
 // --------------------
-$text-primary: #f1f8f5; // Minty White (Softer than pure white)
-$text-secondary: #94a8a0; // Sage Grey (Muted text)
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
 
 // ACCENTS
 // --------------------
-$primary-color: #2d6a4f; // Medium Green (Used for depth/shadows)
-
-// THE HERO ACCENT
-// A soft, warm Peach that sits beautifully on the green background.
-$secondary-color: #ffc8b2; 
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$white-color: var(--white-color);
+$black-color: var(--black-color);
+$gray-color: var(--gray-color);
+$brown-color: var(--brown-color);
 
 /* =========================================
    2. TYPOGRAPHY
@@ -50,11 +43,11 @@ $desktop: 1024px;
    4. MIXINS
    ========================================= */
 @mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 @mixin theme-transition {
-  transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
 }

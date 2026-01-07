@@ -1,24 +1,24 @@
-:root {
-  --color-forest: #0a1915;
-  --color-peach: #ffc8b2;
-  --color-peach-dim: #eebba6;
-}
+@import '../../styles/variables';
 
 .app__footer {
   flex: 1;
   width: 100%;
   flex-direction: column;
-  background-color: var(--color-forest); /* Match the rest of the site */
+  background-color: var(--bg-primary);
+  /* Match the rest of the site */
   padding-bottom: 2rem;
 
   .head-text {
     font-size: 3rem;
     font-weight: 800;
     text-align: center;
-    color: var(--color-peach);
+    color: var(--secondary-color);
     margin-bottom: 2rem;
-    
-    span { color: var(--color-peach-dim); font-style: italic;}
+
+    span {
+      color: var(--text-secondary);
+      font-style: italic;
+    }
   }
 }
 
@@ -41,31 +41,33 @@
     padding: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.05); /* Glass */
-    border: 1px solid rgba(255, 200, 178, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Glass */
+    border: 1px solid var(--border-color);
     backdrop-filter: blur(4px);
     transition: all 0.3s ease-in-out;
 
-    img {
-      width: 40px;
-      height: 40px;
+    /* img styles removed as we now use react-icons */
+
+    svg {
       margin: 0 0.7rem;
     }
 
     p {
       font-weight: 600;
-      color: var(--color-peach); /* Text color */
+      color: var(--secondary-color);
+      /* Text color */
     }
 
     a {
       text-decoration: none;
       font-weight: 500;
-      color: var(--color-peach-dim);
+      color: var(--text-secondary);
     }
 
     &:hover {
-      box-shadow: 0 0 25px rgba(255, 200, 178, 0.15);
-      border-color: var(--color-peach);
+      box-shadow: 0 0 25px rgba(var(--secondary-color-rgb), 0.15);
+      border-color: var(--secondary-color);
     }
   }
 
@@ -84,17 +86,21 @@
     width: 100%;
     margin: 0.75rem 0;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.03); /* Dark Input Bg */
+    background-color: rgba(255, 255, 255, 0.03);
+    /* Dark Input Bg */
     cursor: pointer;
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 1rem;
-      border: 1px solid rgba(255, 200, 178, 0.1); /* Subtle Border */
+      border: 1px solid var(--border-color);
+      /* Subtle Border */
       border-radius: 7px;
       background: transparent;
       font-family: var(--font-base);
-      color: #fff; /* Typing color */
+      color: #fff;
+      /* Typing color */
       outline: none;
       transition: border-color 0.3s ease;
 
@@ -103,13 +109,14 @@
       }
 
       &:focus {
-        border-color: var(--color-peach); /* Highlight on focus */
+        border-color: var(--secondary-color);
+        /* Highlight on focus */
       }
     }
 
     textarea {
       height: 170px;
-      resize: none; 
+      resize: none;
     }
   }
 
@@ -117,9 +124,9 @@
     padding: 1rem 2rem;
     border-radius: 10px;
     border: none;
-    background-color: var(--color-peach);
+    background-color: var(--secondary-color);
     font-weight: 700;
-    color: var(--color-forest);
+    color: var(--bg-primary);
     outline: none;
     margin-top: 2rem;
     cursor: pointer;
@@ -140,8 +147,8 @@
 
 /* Success Message Text */
 .head-text-success {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-peach);
-    margin-top: 4rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-top: 4rem;
 }

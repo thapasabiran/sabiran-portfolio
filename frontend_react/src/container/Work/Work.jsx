@@ -17,28 +17,44 @@ const Work = () => {
     const query = '*[_type == "works"]';
 
     client.fetch(query).then((data) => {
-      setWorks(data);
-      setFilterWork(data);
-
-      // --- ROBUST FILTER LOGIC ---
-      // 1. Create a Set to hold unique tags from the database
-      const dbTags = new Set();
-      
-      data.forEach((item) => {
-        if (item.tags) {
-          item.tags.forEach((tag) => {
-             // Add tag to set (trim whitespace to avoid "React " vs "React")
-             dbTags.add(tag.trim());
-          });
+      // --- RESUME PROJECTS (Hardcoded Fallback/Hero Projects) ---
+      const resumeProjects = [
+        {
+          title: 'Slo-Pitch Ontario System',
+          description: 'Architected a large-scale registration platform serving thousands of users. Built with ASP.NET MVC, C#, and optimized MySQL databases.',
+          tags: ['ASP.NET', 'C#', 'SQL', 'System Design'],
+          imgUrl: null, // You can add a placeholder or icon later
+          projectLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'LLM Multimodal Fine-Tuning',
+          description: 'Engineered a pipeline to fine-tune Large Language Models for image-to-text generation using Python and PyMuPDF.',
+          tags: ['Python', 'AI/ML', 'LLM', 'Data Eng'],
+          imgUrl: null,
+          projectLink: '#',
+          codeLink: '#'
+        },
+        {
+          title: 'E2EE Flutter Chat',
+          description: 'Developed a secure, end-to-end encrypted messaging app using Flutter, Dart, and Client-side Cryptography.',
+          tags: ['Flutter', 'Security', 'Mobile', 'Dart'],
+          imgUrl: null,
+          projectLink: '#',
+          codeLink: '#'
         }
-      });
+      ];
 
-      // 2. Remove "All" from the DB tags if it exists (so we don't have duplicates)
-      dbTags.delete('All');
-      dbTags.delete('all'); // Handle lowercase just in case
+      // Merge Resume Projects with Sanity Data
+      // (Resume projects first for impact)
+      const merged = [...resumeProjects, ...data];
 
-      // 3. Create final list: Hardcoded 'All' + the rest from DB
-      setFilterButtons(['All', ...Array.from(dbTags)]);
+      setWorks(merged);
+      setFilterWork(merged);
+
+      // --- SIMPLIFIED CATEGORY FILTERS ---
+      // Instead of listing every single tech tag (which creates clutter), use high-level categories.
+      setFilterButtons(['All', 'Web App', 'Mobile App', 'AI/ML']);
     });
   }, []);
 
@@ -52,7 +68,23 @@ const Work = () => {
       if (item === 'All') {
         setFilterWork(works);
       } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)));
+        // Filter Logic:
+        // Check if the project tags contain the Category Name (e.g. project has 'Mobile App' tag)
+        // OR check for key synonyms if tags are unorganized.
+        setFilterWork(works.filter((work) => {
+          if (!work.tags) return false;
+          const tagsLower = work.tags.map(t => t.toLowerCase());
+          const filterLower = item.toLowerCase();
+
+          if (tagsLower.includes(filterLower)) return true;
+
+          // Synonyms mapping
+          if (item === 'Web App' && (tagsLower.includes('react') || tagsLower.includes('asp.net') || tagsLower.includes('next.js'))) return true;
+          if (item === 'Mobile App' && (tagsLower.includes('flutter') || tagsLower.includes('react native') || tagsLower.includes('ios'))) return true;
+          if (item === 'AI/ML' && (tagsLower.includes('python') || tagsLower.includes('llm') || tagsLower.includes('tensor'))) return true;
+
+          return false;
+        }));
       }
     }, 500);
   };
@@ -81,7 +113,9 @@ const Work = () => {
         {filterWork.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
-              {work.imgUrl && <img src={urlFor(work.imgUrl)} alt={work.name} />}
+              {/* Show Project Image if available, else placeholder or nothing */}
+              {work.imgUrl && <img src={urlFor(work.imgUrl)} alt={work.title} />}
+              {!work.imgUrl && <div className="img-placeholder" style={{ width: '100%', height: '100%', background: 'rgba(255,255,255,0.05)' }}></div>}
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -116,7 +150,10 @@ const Work = () => {
               <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
 
               <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags ? work.tags[0] : 'Project'}</p>
+                {/* Show up to 3 tags */}
+                {work.tags && work.tags.slice(0, 3).map((tag, i) => (
+                  <span key={i} className="p-text">{tag}</span>
+                ))}
               </div>
             </div>
           </div>

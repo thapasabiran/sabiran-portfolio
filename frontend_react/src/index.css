@@ -3,28 +3,89 @@
 :root {
   --font-base: "DM Sans", sans-serif;
 
-  /* SABIRAN V2 - DARK MODE PALETTE */
-  /* Background: Deep Charcoal instead of Light Gray */
-  --primary-color: #0f1115; 
-  
-  /* Secondary: Electric Blue (Kept similar but slightly brighter for contrast) */
-  --secondary-color: #4facfe; 
-  
-  /* Text: Off-white instead of Black */
-  --black-color: #ededed; 
-  
-  /* Surface: Dark Gray instead of White (for cards/sections) */
-  --white-color: #1a1d23; 
-  
-  /* Accents */
-  --lightGray-color: #2d3036; /* Now a dark border color */
-  --gray-color: #a3a3a3;      /* Muted text */
-  --brown-color: #46364a;     /* Kept as is for now */
+  /* --- ENERGETIC FUTURE THEME (Vibrant Slate) --- */
+
+  /* Backgrounds: Rich Navy/Slate instead of Void Black */
+  --bg-primary: #0f172a;
+  --bg-primary-rgb: 15, 23, 42;
+
+  --bg-secondary: #1e293b;
+  /* Lighter slate for cards */
+  --bg-secondary-rgb: 30, 41, 59;
+
+  --bg-card: rgba(255, 255, 255, 0.05);
+  /* Glassy card bg */
+
+  /* Text: High Contrast White & Cool Grey */
+  --text-primary: #f8fafc;
+  --text-primary-rgb: 248, 250, 252;
+
+  --text-secondary: #94a3b8;
+  /* Cool Blue-Grey */
+
+  /* Accents: High Voltage Energy */
+  --primary-color: #38bdf8;
+  /* Electric Sky Blue */
+  --primary-color-rgb: 56, 189, 248;
+
+  --secondary-color: #8b5cf6;
+  /* Vibrant Violet */
+  --secondary-color-rgb: 139, 92, 246;
+
+  /* UI Elements */
+  --white-color: #ffffff;
+  --black-color: #0f172a;
+  --border-color: rgba(148, 163, 184, 0.2);
+  /* Subtle slate border */
+
+  --gray-color: #6b7280;
+  --brown-color: #46364a;
 }
 
+/* Global Resets & Mobile First Typography */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+}
+
+html {
+  font-size: 100%;
+  /* 16px Base */
+  -webkit-font-smoothing: antialiased;
+  /* Crisp text */
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  /* Muted body text for "Senior" look */
+  font-family: var(--font-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  /* Tighter tracking for modern feel */
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }

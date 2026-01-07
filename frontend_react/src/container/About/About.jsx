@@ -4,11 +4,15 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 import { urlFor, client } from '../../client';
 
+import { Mdschool, MdSecurity, MdAutoGraph } from 'react-icons/md'; // Use Generic Material Icons if specific ones fail, or just use text for now if unsure of package
+// Better to use safe icons. Let's use `react-icons/md` or `ai` if available.
+// Checking imports first. Work.jsx used `ai`.
+import { AiOutlineSafety, AiOutlineRise, AiOutlineTeam, AiFillTrophy } from 'react-icons/ai';
+
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 
   useEffect(() => {
-    // We filter in the query to ensure we only get items that actually have a title
     const query = '*[_type == "about" && defined(title)]';
     client.fetch(query).then((data) => setAbouts(data));
   }, []);
@@ -20,7 +24,7 @@ const About = () => {
       </h2>
 
       <div className="app__profiles">
-        
+
         {/* --- BENTO ITEM 1: The Bio (Wide Card) --- */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,35 +32,69 @@ const About = () => {
           transition={{ duration: 0.5, type: 'tween' }}
           className="app__profile-item item-bio"
         >
-          <h2>Who I Am</h2>
+          <h2>About Me</h2>
           <p>
-            I don't just write code; I build systems that solve problems. 
-            With a background in both <strong>Data Science</strong> and <strong>Full Stack Engineering</strong>, 
-            I bridge the gap between complex algorithms and intuitive user interfaces.
+            I am a <strong>Full Stack & AI Developer</strong> with 3+ years of experience building scalable systems.
+            My background spans enterprise .NET development at <strong>Crestline</strong>, mobile engineering at <strong>Revature</strong>,
+            and advanced AI research in <strong>LLM Fine-Tuning</strong>.
           </p>
         </motion.div>
 
-        {/* --- BENTO ITEM 2: Tech Stack (Tall Card) --- */}
+        {/* --- BENTO ITEM 2: Impact Highlight (Tall Card) --- */}
         <motion.div
-           whileInView={{ opacity: 1, y: 0 }}
-           initial={{ opacity: 0, y: 20 }}
-           transition={{ duration: 0.5, delay: 0.1, type: 'tween' }}
-           className="app__profile-item item-stack"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.1, type: 'tween' }}
+          className="app__profile-item item-stack"
         >
-           <h2>Core Stack</h2>
-           <p>Tools of the trade.</p>
-           <div className="stack-list">
-             <span>Python</span>
-             <span>React</span>
-             <span>Node.js</span>
-             <span>TensorFlow</span>
-             <span>SQL</span>
-             <span>AWS</span>
-             <span>Git</span>
-             <span>Sass</span>
-             <span>Next.js</span>
-             <span>Figma</span>
-           </div>
+          <h2>Key Impact</h2>
+          <div className="impact-list">
+            <div className="impact-item">
+              <AiOutlineTeam size={25} style={{ color: 'var(--primary-color)' }} />
+              <div>
+                <h3>Slo-Pitch Ontario</h3>
+                <p>Designed a large-scale registration system serving thousands of users (ASP.NET & MySQL).</p>
+              </div>
+            </div>
+            <div className="impact-item">
+              <AiOutlineRise size={25} style={{ color: 'var(--secondary-color)' }} />
+              <div>
+                <h3>Applied AI Solutions</h3>
+                <p>Fine-tuned multimodal LLMs to automate image-to-text generation for complex datasets.</p>
+              </div>
+            </div>
+            <div className="impact-item">
+              <AiOutlineSafety size={25} style={{ color: 'var(--primary-color)' }} />
+              <div>
+                <h3>Secure Systems</h3>
+                <p>Built E2EE Flutter chat apps and banking-grade payment gateways in React Native.</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* --- BENTO ITEM 3: Education & Certs (New!) --- */}
+        <motion.div
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.2, type: 'tween' }}
+          className="app__profile-item item-edu"
+        >
+          <h2>Education</h2>
+          <div className="edu-list">
+            <div className="edu-item">
+              <span>2024</span>
+              <p><strong>Postgrad: Applied A.I. Solutions</strong><br />George Brown College</p>
+            </div>
+            <div className="edu-item">
+              <span>2018</span>
+              <p><strong>Diploma in Computer Programming</strong><br />Seneca College</p>
+            </div>
+            <div className="edu-item">
+              <span>2012</span>
+              <p><strong>B.E. Electronics & Communication</strong><br />ACEM, Nepal</p>
+            </div>
+          </div>
         </motion.div>
 
         {/* --- BENTO ITEMS 3+: Dynamic Sanity Cards --- */}
@@ -74,7 +112,7 @@ const About = () => {
               key={about.title + index}
             >
               {about.imgUrl && <img src={urlFor(about.imgUrl)} alt={about.title} />}
-              
+
               <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
               <p className="p-text" style={{ marginTop: 10 }}>{about.description}</p>
             </motion.div>
