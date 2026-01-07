@@ -17,40 +17,8 @@ const Work = () => {
     const query = '*[_type == "works"]';
 
     client.fetch(query).then((data) => {
-      // --- RESUME PROJECTS (Hardcoded Fallback/Hero Projects) ---
-      const resumeProjects = [
-        {
-          title: 'Slo-Pitch Ontario System',
-          description: 'Architected a large-scale registration platform serving thousands of users. Built with ASP.NET MVC, C#, and optimized MySQL databases.',
-          tags: ['ASP.NET', 'C#', 'SQL', 'System Design'],
-          imgUrl: null, // You can add a placeholder or icon later
-          projectLink: '#',
-          codeLink: '#'
-        },
-        {
-          title: 'LLM Multimodal Fine-Tuning',
-          description: 'Engineered a pipeline to fine-tune Large Language Models for image-to-text generation using Python and PyMuPDF.',
-          tags: ['Python', 'AI/ML', 'LLM', 'Data Eng'],
-          imgUrl: null,
-          projectLink: '#',
-          codeLink: '#'
-        },
-        {
-          title: 'E2EE Flutter Chat',
-          description: 'Developed a secure, end-to-end encrypted messaging app using Flutter, Dart, and Client-side Cryptography.',
-          tags: ['Flutter', 'Security', 'Mobile', 'Dart'],
-          imgUrl: null,
-          projectLink: '#',
-          codeLink: '#'
-        }
-      ];
-
-      // Merge Resume Projects with Sanity Data
-      // (Resume projects first for impact)
-      const merged = [...resumeProjects, ...data];
-
-      setWorks(merged);
-      setFilterWork(merged);
+      setWorks(data);
+      setFilterWork(data);
 
       // --- SIMPLIFIED CATEGORY FILTERS ---
       // Instead of listing every single tech tag (which creates clutter), use high-level categories.

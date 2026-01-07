@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaPython, FaAws } from 'react-icons/fa';
+import { FaReact, FaPython, FaAws, FaAngular, FaBrain } from 'react-icons/fa';
 import { SiDotnet, SiFlutter, SiTensorflow, SiNextdotjs } from 'react-icons/si';
 import { AppWrap } from '../../wrapper';
 import { images } from '../../constants';
@@ -78,12 +78,12 @@ const Header = () => {
         <p className="p-text" style={{ marginBottom: '1rem', opacity: 0.6 }}>Trusted Expertise In</p>
         <div className="tech-badges">
           {[
-            { icon: <FaReact />, name: 'React' },
-            { icon: <SiNextdotjs />, name: 'Next.js' },
-            { icon: <SiDotnet />, name: '.NET' },
-            { icon: <FaPython />, name: 'Python' },
-            { icon: <FaAws />, name: 'AWS' },
-            { icon: <SiTensorflow />, name: 'AI/ML' }
+            { icon: <SiDotnet />, name: '.NET' },       // Your 3+ years core experience
+            { icon: <FaAngular />, name: 'Angular' },   // Shows enterprise frontend skill
+            { icon: <SiNextdotjs />, name: 'Next.js' }, // Shows modern frontend skill
+            { icon: <FaPython />, name: 'Python' },     // The bridge between Backend & AI
+            { icon: <SiFlutter />, name: 'Flutter' },   // Shows you can do Mobile too
+            { icon: <FaBrain />, name: 'Applied AI' }   // "Applied AI" sounds more professional than generic AI/ML
           ].map((item, index) => (
             <div className="tech-badge" key={index} title={item.name}>
               <span className="badge-icon">{item.icon}</span>

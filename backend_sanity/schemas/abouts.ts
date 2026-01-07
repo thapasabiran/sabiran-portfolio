@@ -1,30 +1,3 @@
-// export default{
-//     name:'abouts',
-//     title:'Abouts',
-//     type: 'document',
-//     fields:[
-//         {
-//             name:'title',
-//             title:'Title',
-//             type:'string'
-//         },
-//         {
-//             name:'description',
-//             title:'Description',
-//             type:'string'
-//         },
-//         {
-//             name:'imgUrl',
-//             title:'ImgUrl',
-//             type: 'image',
-//             options: {
-//               hotspot: true,
-//             },
-//         },
-        
-//     ]
-// }
-
 export default {
     name: 'about',
     title: 'About',
@@ -54,6 +27,13 @@ export default {
             title: 'Description',
             type: 'string'
         },
-        // ... (keep your existing fields like imgUrl)
+        {
+            name: 'imgUrl',
+            title: 'ImgUrl',
+            type: 'image',
+            options: {
+                hotspot: true,
+            },
+        },
     ]
 }

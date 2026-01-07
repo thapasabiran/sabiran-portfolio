@@ -18,65 +18,67 @@
   }
 }
 
-// --- LEFT SIDE: SKILL ICONS ---
-// --- LEFT SIDE: CATEGORIZED SKILLS (New!) ---
-.app__skills-list-grouped {
+// --- LEFT SIDE: SKILL ICONS (Standard Grid) ---
+.app__skills-list {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   margin-right: 5rem;
 
   @media screen and (max-width: 900px) {
     margin-right: 0;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 3rem;
   }
 
-  .skill-group {
-    .skill-group-title {
-      font-size: 1.1rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.5rem;
-      display: inline-block;
+  .app__skills-item {
+    flex-direction: column;
+    text-align: center;
+    margin: 1rem;
+    transition: all 0.3s ease-in-out;
+
+    div {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: var(--bg-secondary); // Dark circle
+      border: 1px solid var(--border-color);
+
+      img {
+        width: 50%;
+        height: 50%;
+        object-fit: contain;
+      }
+
+      &:hover {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        border-color: var(--secondary-color);
+      }
+
+      @media screen and (min-width: 2000px) {
+        width: 150px;
+        height: 150px;
+      }
     }
 
-    .skill-group-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    p {
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
 
-      .app__skills-item-pill {
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 0.5rem 1.25rem;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-        border: 1px solid transparent;
-        cursor: default;
+    @media screen and (min-width: 2000px) {
+      margin: 1rem 2rem;
 
-        p {
-          margin: 0;
-          font-weight: 600;
-          color: var(--text-secondary);
-        }
-
-        &:hover {
-          background-color: rgba(var(--primary-color-rgb), 0.1);
-          border-color: var(--primary-color);
-
-          p {
-            color: var(--white-color);
-          }
-        }
+      p {
+        margin-top: 1rem;
       }
     }
   }
 }
 
-// (Legacy Icon Styles Removed)
-
-// --- RIGHT SIDE: EXPERIENCE ---
 .app__skills-exp {
   flex: 1;
   display: flex;
@@ -141,6 +143,14 @@
       h4 {
         color: $secondary-color;
       }
+    }
+
+    .app__skills-exp-desc {
+      margin-top: 5px;
+      font-size: 0.85rem;
+      color: var(--gray-color);
+      line-height: 1.5;
+      font-weight: 300;
     }
   }
 }

@@ -20,12 +20,7 @@
 
 // -------------------------
 
-.app__container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-}
+/* .app__container Moved below to support positioning context */
 
 .app__flex {
   display: flex;
@@ -304,6 +299,7 @@
 
 // 4. NAVIGATION & SOCIAL (Dark Mode Update)
 // -----------------------------------------
+
 /* --- CYBERPUNK ACTIVITY BAR --- */
 .app__navigation {
   display: flex;
@@ -311,8 +307,13 @@
   align-items: center;
   flex-direction: column;
   padding: 1rem;
-  /* Removed fixed positioning to prevent z-index stacking issues */
-  /* The dots will now vertically center relative to each section */
+
+  /* POSITIONING FIX: Removed from flex flow to fix margin asymmetry */
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
 
   .app__navigation-dot {
     width: 3px;
@@ -345,6 +346,15 @@
       }
     }
   }
+}
+
+/* Layout Container: Relative to support absolute nav */
+.app__container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  position: relative;
 }
 
 /* Social Media Hidden (Nuclear Option) */
