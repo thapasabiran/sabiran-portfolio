@@ -4,10 +4,8 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 import { urlFor, client } from '../../client';
 
-import { Mdschool, MdSecurity, MdAutoGraph } from 'react-icons/md'; // Use Generic Material Icons if specific ones fail, or just use text for now if unsure of package
-// Better to use safe icons. Let's use `react-icons/md` or `ai` if available.
-// Checking imports first. Work.jsx used `ai`.
-import { AiOutlineSafety, AiOutlineRise, AiOutlineTeam, AiFillTrophy } from 'react-icons/ai';
+// Using consistent Ant Design icons for a clean, professional look
+import { AiOutlineSafety, AiOutlineRise, AiOutlineTeam, AiFillThunderbolt } from 'react-icons/ai';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -20,12 +18,12 @@ const About = () => {
   return (
     <>
       <h2 className="head-text">
-        Structuring <span>Chaos</span> <br /> into <span>Logic</span>
+        Bridging <span>Enterprise Logic</span> <br /> with <span>AI Innovation</span>
       </h2>
 
       <div className="app__profiles">
 
-        {/* --- BENTO ITEM 1: The Bio (Wide Card) --- */}
+        {/* --- BENTO ITEM 1: The Bio (Narrative) --- */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -34,13 +32,15 @@ const About = () => {
         >
           <h2>About Me</h2>
           <p>
-            I am a <strong>Full Stack & AI Developer</strong> with 3+ years of experience building scalable systems.
-            My background spans enterprise .NET development at <strong>Crestline</strong>, mobile engineering at <strong>Revature</strong>,
-            and advanced AI research in <strong>LLM Fine-Tuning</strong>.
+            I am a <strong>Full Stack & AI Engineer</strong> building solutions <strong>since 2018</strong>.
+            My journey spans enterprise .NET architecture at <strong>Crestline</strong>, mobile engineering at <strong>Revature</strong>,
+            and delivering independent <strong>SaaS & Web Solutions</strong> for local businesses.
+            <br /><br />
+            Currently, I specialize in combining robust backend logic (Python/C#) with modern frontend interactivity (Next.js) to solve complex business problems.
           </p>
         </motion.div>
 
-        {/* --- BENTO ITEM 2: Impact Highlight (Tall Card) --- */}
+        {/* --- BENTO ITEM 2: Key Impact (Metrics & Tech) --- */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -50,30 +50,30 @@ const About = () => {
           <h2>Key Impact</h2>
           <div className="impact-list">
             <div className="impact-item">
-              <AiOutlineTeam size={25} style={{ color: 'var(--primary-color)' }} />
+              <AiOutlineTeam size={25} style={{ color: '#007bff' }} /> {/* Blue for Enterprise */}
               <div>
-                <h3>Slo-Pitch Ontario</h3>
-                <p>Designed a large-scale registration system serving thousands of users (ASP.NET & MySQL).</p>
+                <h3>Enterprise Scale</h3>
+                <p>Architected the Slo-Pitch Ontario registration system (ASP.NET), managing <strong>thousands of active users</strong> and complex league rosters.</p>
               </div>
             </div>
             <div className="impact-item">
-              <AiOutlineRise size={25} style={{ color: 'var(--secondary-color)' }} />
+              <AiFillThunderbolt size={25} style={{ color: '#ffc107' }} /> {/* Gold for AI/Speed */}
               <div>
-                <h3>Applied AI Solutions</h3>
-                <p>Fine-tuned multimodal LLMs to automate image-to-text generation for complex datasets.</p>
+                <h3>Applied AI & RAG</h3>
+                <p>Engineered multimodal pipelines to fine-tune LLMs for image-to-text generation and built <strong>SavvyMenu AI</strong>, a RAG-powered concierge.</p>
               </div>
             </div>
             <div className="impact-item">
-              <AiOutlineSafety size={25} style={{ color: 'var(--primary-color)' }} />
+              <AiOutlineSafety size={25} style={{ color: '#28a745' }} /> {/* Green for Security */}
               <div>
-                <h3>Secure Systems</h3>
-                <p>Built E2EE Flutter chat apps and banking-grade payment gateways in React Native.</p>
+                <h3>Security & Mobile</h3>
+                <p>Developed privacy-first mobile apps with <strong>End-to-End Encryption (E2EE)</strong> in Flutter and banking-grade payment gateways in React Native.</p>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* --- BENTO ITEM 3: Education & Certs (New!) --- */}
+        {/* --- BENTO ITEM 3: Education & Credentials --- */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -84,23 +84,22 @@ const About = () => {
           <div className="edu-list">
             <div className="edu-item">
               <span>2024</span>
-              <p><strong>Postgrad: Applied A.I. Solutions</strong><br />George Brown College</p>
+              <p><strong>Postgrad: Applied A.I. Solutions</strong><br />George Brown College, Toronto</p>
             </div>
             <div className="edu-item">
               <span>2018</span>
-              <p><strong>Diploma in Computer Programming</strong><br />Seneca College</p>
+              <p><strong>Diploma in Computer Programming</strong><br />Seneca College, Toronto</p>
             </div>
             <div className="edu-item">
               <span>2012</span>
-              <p><strong>B.E. Electronics & Communication</strong><br />ACEM, Nepal</p>
+              <p><strong>B.E. Electronics & Communication</strong><br />ACEM, Kathmandu</p>
             </div>
           </div>
         </motion.div>
 
-        {/* --- BENTO ITEMS 3+: Dynamic Sanity Cards --- */}
+        {/* --- BENTO ITEMS 3+: Dynamic Sanity Cards (CMS Content) --- */}
         {abouts.map((about, index) => {
           // SAFETY CHECK: If the item has no description or looks empty, don't render it.
-          // This prevents the "Hero Text" document from appearing as an empty box.
           if (!about.description && !about.imgUrl) return null;
 
           return (
