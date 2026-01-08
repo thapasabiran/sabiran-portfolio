@@ -5,7 +5,7 @@ import './About.scss';
 import { urlFor, client } from '../../client';
 
 // Using consistent Ant Design icons for a clean, professional look
-import { AiOutlineSafety, AiOutlineRise, AiOutlineTeam, AiFillThunderbolt } from 'react-icons/ai';
+import { AiOutlineSafety, AiOutlineTeam, AiFillThunderbolt } from 'react-icons/ai';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);

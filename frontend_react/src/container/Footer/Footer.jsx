@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { images } from '../../constants';
+// import { images } from '../../constants';
 import { AiFillLinkedin, AiFillGithub, AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
 import { AppWrap, MotionWrap } from '../../wrapper';
 // import { client } from '../../client'; // <-- No longer needed for contact form

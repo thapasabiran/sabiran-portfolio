@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaPython, FaAws, FaAngular, FaBrain } from 'react-icons/fa';
-import { SiDotnet, SiFlutter, SiTensorflow, SiNextdotjs } from 'react-icons/si';
+import { FaPython, FaAngular, FaBrain } from 'react-icons/fa';
+import { SiDotnet, SiFlutter, SiNextdotjs } from 'react-icons/si';
 import { AppWrap } from '../../wrapper';
 import { images } from '../../constants';
 import { urlFor, client } from '../../client';
@@ -15,7 +15,7 @@ const Header = () => {
   });
 
   // Skills list for the scrolling ticker
-  const tickerItems = ['Python', 'React', 'TensorFlow', 'Node.js', 'SQL', 'AWS', 'Tableau', 'Figma', 'Docker', 'Next.js'];
+  // const tickerItems = ['Python', 'React', 'TensorFlow', 'Node.js', 'SQL', 'AWS', 'Tableau', 'Figma', 'Docker', 'Next.js'];
 
   useEffect(() => {
     // Fetch data from Sanity
