@@ -10,27 +10,27 @@
   width: 80%;
   margin-top: 3rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  /* Changed from row to column for better readability */
 
   @media screen and (max-width: 900px) {
     width: 100%;
-    flex-direction: column;
   }
 }
 
 // --- LEFT SIDE: SKILL ICONS (Standard Grid) ---
 .app__skills-list {
   flex: 1;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  margin-right: 5rem;
+  align-items: center;
+  margin-right: 0;
+  margin-bottom: 4rem;
+  /* Additional spacing between Skills and Timeline */
 
   @media screen and (max-width: 900px) {
-    margin-right: 0;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 3rem;
   }
 
@@ -130,9 +130,25 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    /* Increased spacing */
     cursor: pointer;
     transition: all 0.3s ease;
+
+    /* Timeline Bullet Position */
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid rgba(0, 229, 255, 0.1);
+
+    /* Hover Effect on Timeline */
+    &:hover {
+      border-left-color: var(--primary-color);
+
+      h4 {
+        color: var(--primary-color);
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+      }
+    }
 
     h4 {
       font-weight: 700;

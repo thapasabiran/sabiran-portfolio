@@ -21,8 +21,8 @@ const Work = () => {
       setFilterWork(data);
 
       // --- SIMPLIFIED CATEGORY FILTERS ---
-      // Instead of listing every single tech tag (which creates clutter), use high-level categories.
-      setFilterButtons(['All', 'Web App', 'Mobile App', 'AI/ML']);
+      // Renamed for "Senior Engineer" appeal as requested
+      setFilterButtons(['All', 'Full Stack', 'Mobile Solutions', 'Applied AI']);
     });
   }, []);
 
@@ -36,20 +36,14 @@ const Work = () => {
       if (item === 'All') {
         setFilterWork(works);
       } else {
-        // Filter Logic:
-        // Check if the project tags contain the Category Name (e.g. project has 'Mobile App' tag)
-        // OR check for key synonyms if tags are unorganized.
         setFilterWork(works.filter((work) => {
           if (!work.tags) return false;
           const tagsLower = work.tags.map(t => t.toLowerCase());
-          const filterLower = item.toLowerCase();
 
-          if (tagsLower.includes(filterLower)) return true;
-
-          // Synonyms mapping
-          if (item === 'Web App' && (tagsLower.includes('react') || tagsLower.includes('asp.net') || tagsLower.includes('next.js'))) return true;
-          if (item === 'Mobile App' && (tagsLower.includes('flutter') || tagsLower.includes('react native') || tagsLower.includes('ios'))) return true;
-          if (item === 'AI/ML' && (tagsLower.includes('python') || tagsLower.includes('llm') || tagsLower.includes('tensor'))) return true;
+          // Mapping new labels to existing tags
+          if (item === 'Full Stack' && (tagsLower.includes('web app') || tagsLower.includes('react') || tagsLower.includes('asp.net') || tagsLower.includes('next.js'))) return true;
+          if (item === 'Mobile Solutions' && (tagsLower.includes('mobile app') || tagsLower.includes('flutter') || tagsLower.includes('react native') || tagsLower.includes('ios'))) return true;
+          if (item === 'Applied AI' && (tagsLower.includes('ai/ml') || tagsLower.includes('python') || tagsLower.includes('llm') || tagsLower.includes('tensor') || tagsLower.includes('rag'))) return true;
 
           return false;
         }));
@@ -59,7 +53,7 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">My Creative <span>Portfolio</span></h2>
+      <h2 className="head-text">Engineering & <span>AI Showcase</span></h2>
 
       <div className="app__work-filter">
         {filterButtons.map((item, index) => (

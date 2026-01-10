@@ -36,6 +36,20 @@
   flex-wrap: wrap;
   margin: 2rem 0 3rem;
 
+  /* Sticky Positioning */
+  position: sticky;
+  top: 6rem;
+  /* Below the floating navbar */
+  z-index: 50;
+  background: rgba(2, 6, 23, 0.8);
+  /* Slight background to hide content behind */
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 229, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+
   .app__work-filter-item {
     padding: 0.8rem 1.5rem;
     border-radius: 50px;

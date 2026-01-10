@@ -58,6 +58,7 @@ html {
   /* 16px Base */
   -webkit-font-smoothing: antialiased;
   /* Crisp text */
+  scroll-behavior: smooth;
 }
 
 body {

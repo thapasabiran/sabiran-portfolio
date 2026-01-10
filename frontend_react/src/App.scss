@@ -32,11 +32,11 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
-  /* Balanced Padding for Centering */
-  padding: 4rem 2rem;
+  /* Balanced Padding for Centering + Floating Nav Space */
+  padding: 8rem 2rem 4rem;
 
   @media screen and (max-width: 450px) {
-    padding: 4rem 1rem 2rem;
+    padding: 6rem 1rem 2rem;
   }
 }
 

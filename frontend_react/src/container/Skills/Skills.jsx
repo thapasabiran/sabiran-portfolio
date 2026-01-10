@@ -15,8 +15,8 @@ const Skills = () => {
     const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
-      // Optional: Sort experiences by year if Sanity doesn't
-      // data.sort((a, b) => b.year - a.year); 
+      // Sort experiences by year (descending) to fix chronological order
+      data.sort((a, b) => b.year - a.year);
       setExperiences(data);
     });
 

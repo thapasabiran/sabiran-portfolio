@@ -31,16 +31,11 @@ const About = () => {
           className="app__profile-item item-bio"
         >
           <h2>About Me</h2>
-          <p>
-            I am a <strong>Full Stack & AI Engineer</strong> building solutions <strong>since 2018</strong>.
-            My journey spans enterprise .NET architecture at <strong>Crestline</strong>, mobile engineering at <strong>Revature</strong>,
-            and delivering independent <strong>SaaS & Web Solutions</strong> for local businesses.
-            <br /><br />
-            Currently, I specialize in combining robust backend logic (Python/C#) with modern frontend interactivity (Next.js) to solve complex business problems.
-          </p>
+          I am a <strong>Full Stack & AI Engineer</strong> (since 2018) combining <strong>Enterprise .NET Architecture</strong> with <strong>Applied AI</strong>.
+          I build systems—from high-traffic platforms to RAG-powered chatbots—focused on <strong>scalability, security, and impact</strong>.
         </motion.div>
 
-        {/* --- BENTO ITEM 2: Key Impact (Metrics & Tech) --- */}
+        {/* --- BENTO ITEM 2: Key Impact (Action-Oriented) --- */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -50,30 +45,30 @@ const About = () => {
           <h2>Key Impact</h2>
           <div className="impact-list">
             <div className="impact-item">
-              <AiOutlineTeam size={25} style={{ color: '#00e5ff' }} /> {/* Cyan for Enterprise */}
+              <AiOutlineTeam size={25} style={{ color: '#007bff' }} />
               <div>
-                <h3>Enterprise Scale</h3>
-                <p>Architected the Slo-Pitch Ontario registration system (ASP.NET), managing <strong>thousands of active users</strong> and complex league rosters.</p>
+                <h3>High-Traffic Systems</h3>
+                <p>Modernized legacy ASP.NET architecture for Slo-Pitch Ontario, enhancing performance for <strong>thousands of active users</strong>.</p>
               </div>
             </div>
             <div className="impact-item">
-              <AiFillThunderbolt size={25} style={{ color: '#39ff14' }} /> {/* Neon Green for AI/Speed */}
+              <AiFillThunderbolt size={25} style={{ color: '#ffc107' }} />
               <div>
-                <h3>Applied AI & RAG</h3>
-                <p>Engineered multimodal pipelines to fine-tune LLMs for image-to-text generation and built <strong>SavvyMenu AI</strong>, a RAG-powered concierge.</p>
+                <h3>Intelligent Automation</h3>
+                <p>Engineered <strong>SavvyMenu AI</strong> (RAG/Vector DB) and fine-tuned multimodal LLMs to automate complex image-to-text workflows.</p>
               </div>
             </div>
             <div className="impact-item">
-              <AiOutlineSafety size={25} style={{ color: '#d946ef' }} /> {/* Fuchsia for Security */}
+              <AiOutlineSafety size={25} style={{ color: '#28a745' }} />
               <div>
-                <h3>Security & Mobile</h3>
-                <p>Developed privacy-first mobile apps with <strong>End-to-End Encryption (E2EE)</strong> in Flutter and banking-grade payment gateways in React Native.</p>
+                <h3>Secure Mobile Ops</h3>
+                <p>Built privacy-first apps with <strong>End-to-End Encryption (E2EE)</strong> in Flutter and banking-grade payment gateways in React Native.</p>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* --- BENTO ITEM 3: Education & Credentials --- */}
+        {/* --- BENTO ITEM 3: Education (Cleaned Up) --- */}
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -88,11 +83,11 @@ const About = () => {
             </div>
             <div className="edu-item">
               <span>2018</span>
-              <p><strong>Diploma in Computer Programming</strong><br />Seneca College, Toronto</p>
+              <p><strong>Diploma: Computer Programming</strong><br />Seneca College, Toronto</p>
             </div>
             <div className="edu-item">
               <span>2012</span>
-              <p><strong>B.E. Electronics & Communication</strong><br />ACEM, Kathmandu</p>
+              <p><strong>B.E. Electronics Engineering</strong><br />ACEM, Kathmandu</p>
             </div>
           </div>
         </motion.div>
