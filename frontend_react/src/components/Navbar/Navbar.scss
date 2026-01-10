@@ -7,11 +7,14 @@
   position: fixed;
   z-index: 100;
 
-  /* --- Midnight Glass Effect --- */
-  background: rgba(var(--bg-primary-rgb), 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  /* --- Cyberpunk Glass Effect --- */
+  background: rgba(2, 6, 23, 0.25); // Deep Void with high transparency
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.1); // Subtle neon rim
+
+  /* Neon Glow on Bottom */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 
   /* Logo Styling */
   .app__navbar-logo {
@@ -27,10 +30,12 @@
       letter-spacing: 0.05em;
       cursor: pointer;
       font-family: var(--font-base);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); // White glow
 
       span {
         color: var(--primary-color);
         /* The Dot Accent */
+        text-shadow: 0 0 15px var(--primary-color);
       }
     }
   }
@@ -51,8 +56,8 @@
       align-items: center;
 
       div {
-        width: 5px;
-        height: 5px;
+        width: 6px;
+        height: 6px;
         background: transparent;
         border-radius: 50%;
         margin-bottom: 5px;
@@ -69,13 +74,15 @@
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          color: var(--white-color);
+          color: var(--primary-color);
+          text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
         }
       }
 
       &:hover {
         div {
-          background-color: var(--primary-color);
+          background-color: var(--secondary-color); // Violet dot
+          box-shadow: 0 0 10px var(--secondary-color);
         }
       }
     }
@@ -94,8 +101,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-card);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
     border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+    }
 
     svg {
       width: 70%;
@@ -110,7 +124,7 @@
       right: 0;
       z-index: 5;
       padding: 1rem;
-      width: 75%;
+      width: 80%;
       height: 100vh;
       display: flex;
       justify-content: flex-end;
@@ -118,14 +132,21 @@
       flex-direction: column;
 
       /* Mobile Menu Background */
-      background: var(--bg-secondary);
-      box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.8);
+      border-left: 1px solid var(--border-color);
 
       svg {
         width: 35px;
         height: 35px;
         color: var(--secondary-color);
         margin: 0.5rem 1rem;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--primary-color);
+        }
       }
 
       ul {
@@ -145,13 +166,14 @@
           a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             font-weight: 500;
             transition: all 0.3s ease-in-out;
 
             &:hover {
-              color: var(--secondary-color);
+              color: var(--primary-color);
+              padding-left: 10px; // Slide effect
             }
           }
         }

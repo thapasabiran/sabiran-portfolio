@@ -50,21 +50,21 @@ const About = () => {
           <h2>Key Impact</h2>
           <div className="impact-list">
             <div className="impact-item">
-              <AiOutlineTeam size={25} style={{ color: '#007bff' }} /> {/* Blue for Enterprise */}
+              <AiOutlineTeam size={25} style={{ color: '#00e5ff' }} /> {/* Cyan for Enterprise */}
               <div>
                 <h3>Enterprise Scale</h3>
                 <p>Architected the Slo-Pitch Ontario registration system (ASP.NET), managing <strong>thousands of active users</strong> and complex league rosters.</p>
               </div>
             </div>
             <div className="impact-item">
-              <AiFillThunderbolt size={25} style={{ color: '#ffc107' }} /> {/* Gold for AI/Speed */}
+              <AiFillThunderbolt size={25} style={{ color: '#39ff14' }} /> {/* Neon Green for AI/Speed */}
               <div>
                 <h3>Applied AI & RAG</h3>
                 <p>Engineered multimodal pipelines to fine-tune LLMs for image-to-text generation and built <strong>SavvyMenu AI</strong>, a RAG-powered concierge.</p>
               </div>
             </div>
             <div className="impact-item">
-              <AiOutlineSafety size={25} style={{ color: '#28a745' }} /> {/* Green for Security */}
+              <AiOutlineSafety size={25} style={{ color: '#d946ef' }} /> {/* Fuchsia for Security */}
               <div>
                 <h3>Security & Mobile</h3>
                 <p>Developed privacy-first mobile apps with <strong>End-to-End Encryption (E2EE)</strong> in Flutter and banking-grade payment gateways in React Native.</p>

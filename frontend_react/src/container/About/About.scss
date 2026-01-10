@@ -2,7 +2,7 @@
 
 .app__about {
   background-color: var(--bg-primary);
-  color: var(--secondary-color);
+  color: var(--text-primary);
   flex: 1;
   width: 100%;
   padding: 4rem 2rem;
@@ -16,13 +16,17 @@
     font-size: 3rem;
     font-weight: 800;
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--white-color);
     margin-bottom: 3rem;
 
+    /* Neon Glow */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+
     span {
-      color: var(--text-secondary);
+      color: var(--primary-color);
       /* Create contrast */
       font-style: italic;
+      text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
     }
 
     @media screen and (max-width: 450px) {
@@ -55,9 +59,10 @@
 
 /* --- Common Card Style --- */
 .app__profile-item {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(15, 23, 42, 0.6); // Darker glass
+  backdrop-filter: blur(10px);
   /* Glassy Dark */
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(148, 163, 184, 0.1);
   border-radius: 15px;
   padding: 2rem;
   transition: all 0.3s ease;
@@ -70,8 +75,9 @@
 
   &:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--secondary-color);
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
   }
 
   img {
@@ -80,15 +86,16 @@
     object-fit: cover;
     margin-bottom: 1rem;
     border-radius: 8px;
-    background: rgba(var(--secondary-color-rgb), 0.1);
+    background: rgba(0, 229, 255, 0.1);
     padding: 5px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
   }
 
   h2 {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--secondary-color);
+    color: var(--white-color);
   }
 
   p {
@@ -103,7 +110,9 @@
 /* 1. The Bio Card: Spans 2 columns */
 .item-bio {
   grid-column: span 2;
-  background: linear-gradient(145deg, rgba(var(--secondary-color-rgb), 0.05), rgba(var(--bg-primary-rgb), 0));
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.8));
+  border: 1px solid var(--primary-color); // Highlighted bio
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.05);
 
   @media screen and (max-width: 900px) {
     grid-column: span 2;
@@ -111,18 +120,25 @@
 
   h2 {
     font-size: 2rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
   }
 
   p {
     font-size: 1.1rem;
-    max-width: 90%;
+    max-width: 95%;
+
+    strong {
+      color: var(--white-color);
+      font-weight: 600;
+    }
   }
 }
 
 /* 2. The Impact/Stack Card: Tall card */
 .item-stack {
   grid-row: span 2;
-  background: rgba(var(--bg-primary-rgb), 0.5);
+  background: rgba(15, 23, 42, 0.8);
 
   .impact-list {
     display: flex;
@@ -154,7 +170,7 @@
 /* 3. The Education Card (New!) */
 .item-edu {
   grid-column: span 1;
-  background: rgba(var(--bg-primary-rgb), 0.3);
+  background: rgba(15, 23, 42, 0.7);
 
   .edu-list {
     display: flex;
@@ -167,8 +183,10 @@
         display: inline-block;
         font-size: 0.8rem;
         font-weight: 700;
-        color: var(--primary-color);
+        color: var(--secondary-color); // Neon Fuchsia
         margin-bottom: 0.25rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
 
       p {

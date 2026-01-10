@@ -14,10 +14,10 @@
   position: relative;
   overflow: hidden;
 
-  /* Energetic background glow */
+  /* Energetic Cyberpunk background glow */
   background-image:
-    radial-gradient(at 0% 0%, rgba(var(--primary-color-rgb), 0.25) 0px, transparent 60%),
-    radial-gradient(at 100% 100%, rgba(var(--secondary-color-rgb), 0.2) 0px, transparent 60%);
+    radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(217, 70, 239, 0.15) 0%, transparent 40%);
 
   @media screen and (min-width: 1024px) {
     flex-direction: row;
@@ -57,11 +57,14 @@
       margin-bottom: 1.5rem;
       color: var(--text-primary);
 
-      /* Gradient Text Effect */
-      background: linear-gradient(to right, var(--white-color), var(--text-secondary));
+      /* Neon Gradient Text Effect */
+      background: linear-gradient(135deg, var(--white-color) 0%, var(--primary-color) 100%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      /* Subtle text glow */
+      filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.3));
 
       @media screen and (min-width: 768px) {
         font-size: 4.5rem;
@@ -89,26 +92,26 @@
       padding: 1rem 2.5rem;
       border-radius: 50px;
       /* Modern Pill */
-      background-color: var(--white-color);
-      color: var(--black-color);
+      background: rgba(0, 229, 255, 0.1);
+      color: var(--primary-color);
       font-weight: 600;
-      border: 1px solid transparent;
+      border: 1px solid var(--primary-color);
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       text-decoration: none;
       display: inline-block;
-      box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.39);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
 
       &:hover {
         transform: translateY(-2px);
-        background-color: var(--text-primary);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.23);
+        background-color: var(--primary-color);
+        color: var(--black-color);
+        box-shadow: 0 0 30px rgba(0, 229, 255, 0.6);
       }
     }
   }
 }
 
-/* --- Hero Image/Visual --- */
 /* --- Hero Image/Visual --- */
 .app__header-img {
   flex: 1;
@@ -130,7 +133,7 @@
     max-width: 500px;
     object-fit: contain;
     z-index: 10;
-    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.2)); // Neon silhouette
     border-radius: 20px;
   }
 
@@ -142,9 +145,27 @@
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
-    background: radial-gradient(circle, rgba(var(--primary-color-rgb), 0.2) 0%, transparent 70%);
-    filter: blur(60px);
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.2) 0%, transparent 60%);
+    filter: blur(80px);
     z-index: 0;
+    animation: pulse 4s infinite ease-in-out;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
   }
 }
 
@@ -172,23 +193,37 @@
 
     .tech-badge {
       padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
       /* Subtle Glass */
       border: 1px solid var(--border-color);
-      border-radius: 6px;
-      /* Slightly squared for "Pro" feel */
+      border-radius: 4px;
+      /* More angular for tech feel */
       color: var(--text-secondary);
       font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       transition: all 0.3s ease;
       cursor: default;
+      font-family: var(--font-code, monospace);
+      /* Use code font if available */
+
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .badge-icon {
+        display: flex;
+        align-items: center;
+        color: var(--primary-color);
+      }
 
       &:hover {
         border-color: var(--primary-color);
         color: var(--white-color);
-        background: rgba(var(--primary-color-rgb), 0.1);
+        background: rgba(0, 229, 255, 0.1);
         transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
       }
     }
   }

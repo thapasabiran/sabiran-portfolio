@@ -44,18 +44,24 @@
       width: 90px;
       height: 90px;
       border-radius: 50%;
-      background-color: var(--bg-secondary); // Dark circle
+      background-color: rgba(255, 255, 255, 0.05); // Glassy
+      backdrop-filter: blur(4px);
       border: 1px solid var(--border-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       img {
         width: 50%;
         height: 50%;
         object-fit: contain;
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
       }
 
       &:hover {
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-        border-color: var(--secondary-color);
+        box-shadow: 0 0 25px rgba(0, 229, 255, 0.2); // Neon Cyan Glow
+        border-color: var(--primary-color);
+        background-color: rgba(0, 229, 255, 0.05);
       }
 
       @media screen and (min-width: 2000px) {
@@ -67,6 +73,7 @@
     p {
       font-weight: 500;
       margin-top: 0.5rem;
+      color: var(--text-secondary);
     }
 
     @media screen and (min-width: 2000px) {
@@ -105,8 +112,9 @@
 
   p {
     font-weight: 800;
-    color: $secondary-color; // Accent Color (Teal/Orange)
+    color: var(--secondary-color); // Neon Fuchsia
     font-size: 1.1rem;
+    text-shadow: 0 0 10px rgba(217, 70, 239, 0.4);
   }
 
   @media screen and (max-width: 450px) {
@@ -128,12 +136,12 @@
 
     h4 {
       font-weight: 700;
-      color: $text-primary; // Off-white Job Title
+      color: var(--white-color);
     }
 
     p {
       font-weight: 400;
-      color: $text-secondary; // Muted Company Name
+      color: var(--text-secondary);
       margin-top: 5px;
       font-size: 0.9rem;
     }
@@ -141,14 +149,16 @@
     // Subtle lift on hover
     &:hover {
       h4 {
-        color: $secondary-color;
+        color: var(--primary-color); // Cyan highlight
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
       }
     }
 
     .app__skills-exp-desc {
       margin-top: 5px;
       font-size: 0.85rem;
-      color: var(--gray-color);
+      color: var(--text-secondary);
+      opacity: 0.8;
       line-height: 1.5;
       font-weight: 300;
     }
@@ -161,14 +171,15 @@
   max-width: 300px !important;
 
   // Tooltip Background = Dark Surface
-  background-color: $bg-secondary !important;
-  border: 1px solid rgba($text-primary, 0.1) !important;
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(5px) !important;
+  border: 1px solid var(--primary-color) !important;
 
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2) !important;
   border-radius: 8px !important;
   padding: 1rem !important;
 
-  color: $text-secondary !important; // Readable grey text
+  color: var(--white-color) !important;
   text-align: center !important;
   line-height: 1.5 !important;
   opacity: 1 !important;

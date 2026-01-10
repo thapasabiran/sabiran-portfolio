@@ -55,24 +55,24 @@ const Footer = () => {
 
       <div className="app__footer-cards">
         <div className="app__footer-card">
-          <AiOutlineMail size={25} color="var(--secondary-color)" style={{ margin: '0 0.7rem' }} />
+          <AiOutlineMail size={25} color="var(--primary-color)" style={{ margin: '0 0.7rem' }} />
           <a href="mailto:sabiranthapa@gmail.com" className="p-text">sabiranthapa@gmail.com</a>
         </div>
         <div className="app__footer-card">
-          <AiOutlinePhone size={25} color="var(--secondary-color)" style={{ margin: '0 0.7rem' }} />
+          <AiOutlinePhone size={25} color="var(--primary-color)" style={{ margin: '0 0.7rem' }} />
           <a href="tel:+16475626399" className="p-text">+1 (647) 562-6399</a>
         </div>
 
         {/* Social Links for Principal Credibility */}
         <div className="app__footer-card">
           <a href="https://www.linkedin.com/in/sabiranthapa" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <AiFillLinkedin size={25} color="var(--secondary-color)" />
+            <AiFillLinkedin size={25} color="var(--primary-color)" />
             <span className="p-text">LinkedIn</span>
           </a>
         </div>
         <div className="app__footer-card">
           <a href="https://github.com/sabiranthapa" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <AiFillGithub size={25} color="var(--secondary-color)" />
+            <AiFillGithub size={25} color="var(--primary-color)" />
             <span className="p-text">GitHub</span>
           </a>
         </div>

@@ -3,40 +3,43 @@
 :root {
   --font-base: "DM Sans", sans-serif;
 
-  /* --- ENERGETIC FUTURE THEME (Vibrant Slate) --- */
+  /* --- CYBERPUNK AI PRO THEME --- */
 
-  /* Backgrounds: Rich Navy/Slate instead of Void Black */
-  --bg-primary: #0f172a;
-  --bg-primary-rgb: 15, 23, 42;
+  /* Backgrounds: Deep Void & Obsidian */
+  --bg-primary: #020617;
+  /* Deep Void */
+  --bg-primary-rgb: 2, 6, 23;
 
-  --bg-secondary: #1e293b;
-  /* Lighter slate for cards */
-  --bg-secondary-rgb: 30, 41, 59;
+  --bg-secondary: #0f172a;
+  /* Slate 900 (Obsidian) */
+  --bg-secondary-rgb: 15, 23, 42;
 
-  --bg-card: rgba(255, 255, 255, 0.05);
-  /* Glassy card bg */
+  --bg-card: rgba(255, 255, 255, 0.03);
+  /* Ultra-Glass */
+  /* Note: Add backdrop-filter: blur(10px) in CSS where used */
 
-  /* Text: High Contrast White & Cool Grey */
-  --text-primary: #f8fafc;
-  --text-primary-rgb: 248, 250, 252;
+  /* Text: Pure White & Cool Grey */
+  --text-primary: #ffffff;
+  --text-primary-rgb: 255, 255, 255;
 
   --text-secondary: #94a3b8;
-  /* Cool Blue-Grey */
+  /* Cool Grey */
 
-  /* Accents: High Voltage Energy */
-  --primary-color: #38bdf8;
-  /* Electric Sky Blue */
-  --primary-color-rgb: 56, 189, 248;
+  /* Accents: Electric Neon */
+  --primary-color: #00e5ff;
+  /* Electric Cyan */
+  --primary-color-rgb: 0, 229, 255;
 
-  --secondary-color: #8b5cf6;
-  /* Vibrant Violet */
-  --secondary-color-rgb: 139, 92, 246;
+  --secondary-color: #d946ef;
+  /* Neon Fuchsia */
+  --secondary-color-rgb: 217, 70, 239;
 
   /* UI Elements */
   --white-color: #ffffff;
-  --black-color: #0f172a;
-  --border-color: rgba(148, 163, 184, 0.2);
-  /* Subtle slate border */
+  --black-color: #020617;
+
+  --border-color: rgba(148, 163, 184, 0.1);
+  /* Subtle cyber border */
 
   --gray-color: #6b7280;
   --brown-color: #46364a;

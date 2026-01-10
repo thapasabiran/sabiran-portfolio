@@ -116,6 +116,8 @@
 
     // Glassy Circle
     background-color: var(--bg-card);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     margin: 0.25rem 0;
     border: 1px solid var(--border-color);
 
@@ -128,14 +130,16 @@
       width: 15px;
       height: 15px;
       color: var(--text-secondary);
+      transition: all 0.3s ease-in-out;
     }
 
     &:hover {
       background-color: var(--primary-color);
       border-color: var(--primary-color);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4); // Neon Glow
 
       svg {
-        color: var(--white-color);
+        color: var(--black-color); // Contrast text on neon
       }
     }
 
@@ -253,13 +257,16 @@
   font-size: 2.75rem;
   font-weight: 800;
   text-align: center;
-
-  // CRITICAL FIX: Ensure this is Off-White, not Black
-  color: $text-primary;
+  color: var(--text-primary);
   text-transform: capitalize;
+  font-family: var(--font-base);
+
+  // Neon Glow for Cyberpunk feel
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
 
   span {
-    color: $secondary-color; // The Accent Color
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.4); // Stronger glow on accent
   }
 
   @media screen and (min-width: 2000px) {
