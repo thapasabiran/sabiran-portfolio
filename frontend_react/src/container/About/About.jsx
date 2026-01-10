@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
-import { urlFor, client } from '../../client';
 
 // Using consistent Ant Design icons for a clean, professional look
 import { AiOutlineSafety, AiOutlineTeam, AiFillThunderbolt } from 'react-icons/ai';
 
 const About = () => {
-  const [abouts, setAbouts] = useState([]);
-
-  useEffect(() => {
-    const query = '*[_type == "about" && defined(title)]';
-    client.fetch(query).then((data) => setAbouts(data));
-  }, []);
+  // Hardcoded layout replaces dynamic fetching for better control
+  // content is now static in Bento grid below
 
   return (
     <>
@@ -31,8 +26,10 @@ const About = () => {
           className="app__profile-item item-bio"
         >
           <h2>About Me</h2>
-          I am a <strong>Full Stack & AI Engineer</strong> (since 2018) combining <strong>Enterprise .NET Architecture</strong> with <strong>Applied AI</strong>.
-          I build systems—from high-traffic platforms to RAG-powered chatbots—focused on <strong>scalability, security, and impact</strong>.
+          <p>
+            I am a <strong>Full Stack & AI Engineer</strong> (since 2018) combining <strong>Enterprise .NET Architecture</strong> with <strong>Applied AI</strong>.
+            I build systems—from high-traffic platforms to RAG-powered chatbots—focused on <strong>scalability, security, and impact</strong>.
+          </p>
         </motion.div>
 
         {/* --- BENTO ITEM 2: Key Impact (Action-Oriented) --- */}
@@ -93,25 +90,8 @@ const About = () => {
         </motion.div>
 
         {/* --- BENTO ITEMS 3+: Dynamic Sanity Cards (CMS Content) --- */}
-        {abouts.map((about, index) => {
-          // SAFETY CHECK: If the item has no description or looks empty, don't render it.
-          if (!about.description && !about.imgUrl) return null;
-
-          return (
-            <motion.div
-              whileInView={{ opacity: 1 }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.5, type: 'tween' }}
-              className="app__profile-item item-standard"
-              key={about.title + index}
-            >
-              {about.imgUrl && <img src={urlFor(about.imgUrl)} alt={about.title} />}
-
-              <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
-              <p className="p-text" style={{ marginTop: 10 }}>{about.description}</p>
-            </motion.div>
-          );
-        })}
+        {/* --- BENTO ITEMS 3+: Dynamic Sanity Cards REMOVED to avoid duplication --- */}
+        {/* The hardcoded Bento grid above replaces the generic dynamic content */}
 
       </div>
     </>

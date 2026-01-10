@@ -82,9 +82,9 @@
 
   /* Image Size Reduction */
   img {
-    width: 140px;
-    /* Reduced from 50px */
-    height: 140px;
+    width: 40px;
+    /* Reduced to compact size */
+    height: 40px;
     object-fit: cover;
     margin-bottom: 0.8rem;
     border-radius: 6px;
@@ -120,7 +120,8 @@
 
   h2 {
     font-size: 1.5rem;
-    /* Title exception */
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
   }
 }
 

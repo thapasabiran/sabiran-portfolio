@@ -4,11 +4,21 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
+  padding-top: 6rem;
+  /* Standard top spacing */
+
+  @media screen and (max-width: 1200px) {
+    padding-top: 9rem;
+    /* Aggressive spacing for tablets to clear navbar */
+  }
 }
 
 .app__skills-container {
   width: 80%;
   margin-top: 3rem;
+  padding-top: 2rem;
+  /* Initial spacing */
+
   display: flex;
   flex-direction: column;
   /* Changed from row to column for better readability */
